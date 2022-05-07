@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="vm" type="com.goat.android.weather.WeatherViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/date_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date: "
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/date_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{vm.dateTime}"
+            app:layout_constraintStart_toEndOf="@id/date_label"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="01/01/2022"/>
+
+        <TextView
+            android:id="@+id/current_low_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current low: "
+            app:layout_constraintTop_toBottomOf="@id/date_label"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/current_low_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{vm.currentLo}"
+            app:layout_constraintTop_toBottomOf="@id/date_label"
+            app:layout_constraintStart_toEndOf="@id/current_low_label"
+            tools:text="77F"/>
+
+        <TextView
+            android:id="@+id/current_hi_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current hi: "
+            app:layout_constraintTop_toBottomOf="@id/current_low_label"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/current_hi_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{vm.currentHi}"
+            app:layout_constraintTop_toBottomOf="@id/current_low_label"
+            app:layout_constraintStart_toEndOf="@id/current_hi_label"
+            tools:text="80F"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
